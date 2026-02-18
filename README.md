@@ -1,120 +1,182 @@
-# Next.js + shadcn/ui Template
+# 🚀 Next.js + shadcn/ui Template
 
-**by NISIO**
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js%2016-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 16">
+  <img src="https://img.shields.io/badge/React%2019-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind%20CSS%204-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4">
+</p>
 
-A production-ready Next.js template with TypeScript, Tailwind CSS, shadcn/ui components, and SEO optimization.
+<p align="center">
+  <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint">
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier">
+</p>
 
-## Features
+<p align="center">
+  <b>by NISIO</b>
+</p>
 
-- **Next.js 16** - Latest React framework with App Router
-- **React 19** - Latest React with Compiler
-- **TypeScript** - Type-safe development
-- **Tailwind CSS 4** - Utility-first CSS framework
-- **shadcn/ui** - 23+ pre-installed UI components
-- **Dark/Light Mode** - Theme switching with next-themes
-- **SEO Ready** - Sitemap, robots, Open Graph, Manifest
-- **Error Handling** - Error boundaries, loading states, 404 page
-- **ESLint + Prettier** - Code linting and formatting
-- **React Hook Form + Zod** - Form handling and validation
+<p align="center">
+  A production-ready Next.js template with TypeScript, Tailwind CSS, shadcn/ui components, and SEO optimization.
+</p>
 
-## Pre-installed Components
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-project-structure">Structure</a> •
+  <a href="#-documentation">Docs</a>
+</p>
 
-| Category | Components |
-|----------|-----------|
-| **Form** | Button, Input, Label, Textarea, Checkbox, Switch, Select, Form |
-| **Display** | Card, Badge, Avatar, Skeleton, Table, Separator |
-| **Overlay** | Dialog, Sheet, DropdownMenu, NavigationMenu, Tooltip |
-| **Feedback** | Toast (Sonner), Tabs, ScrollArea, Collapsible |
+---
 
-## Quick Start
+## ✨ Features
 
-### Prerequisites
+| Feature | Description |
+|---------|-------------|
+| ⚡ **Next.js 16** | Latest React framework with App Router |
+| 🔄 **React 19** | Latest React with Compiler |
+| 🛡️ **TypeScript** | Type-safe development experience |
+| 🎨 **Tailwind CSS 4** | Utility-first CSS framework |
+| 🧩 **shadcn/ui** | 23+ pre-installed UI components |
+| 🌓 **Dark/Light Mode** | Theme switching with next-themes |
+| 🔍 **SEO Ready** | Sitemap, robots, Open Graph, Manifest |
+| 🛠️ **Error Handling** | Error boundaries, loading states, 404 page |
+| 📝 **ESLint + Prettier** | Code linting and formatting |
+| ✅ **React Hook Form + Zod** | Form handling and validation |
 
-- Node.js 20+ (see [`.nvmrc`](.nvmrc))
+---
+
+## 🧩 Pre-installed Components
+
+<div align="center">
+
+| 📋 **Form** | 🖼️ **Display** | 🎯 **Overlay** | 💬 **Feedback** |
+|:-----------:|:--------------:|:--------------:|:---------------:|
+| Button | Card | Dialog | Toast (Sonner) |
+| Input | Badge | Sheet | Tabs |
+| Label | Avatar | DropdownMenu | ScrollArea |
+| Textarea | Skeleton | NavigationMenu | Collapsible |
+| Checkbox | Table | Tooltip | |
+| Switch | Separator | | |
+| Select | | | |
+| Form | | | |
+
+</div>
+
+---
+
+## 🚀 Quick Start
+
+### 📋 Prerequisites
+
+- **Node.js 20+** (see [`.nvmrc`](.nvmrc))
 - npm, yarn, pnpm, or bun
 
-### Installation
+### 📦 Installation
 
-1. Clone or copy this template
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Copy environment variables:
-   ```bash
-   cp .env.example .env.local
-   ```
-4. Update domain in SEO files:
-   - [`src/app/sitemap.ts`](src/app/sitemap.ts) - Change `example.com`
-   - [`src/app/robots.ts`](src/app/robots.ts) - Change `example.com`
-   - [`src/app/layout.tsx`](src/app/layout.tsx) - Update `metadataBase`
-   - [`src/app/opengraph-image.tsx`](src/app/opengraph-image.tsx) - Update content
+```bash
+# 1. Clone or copy this template
+git clone <repository-url>
 
-5. Run the development server:
-   ```bash
-   npm run dev
-   ```
+# 2. Install dependencies
+npm install
+
+# 3. Copy environment variables
+cp .env.example .env
+```
+
+### ⚙️ Configuration
+
+Update your domain in SEO files:
+
+| File | What to Change |
+|------|----------------|
+| [`src/app/sitemap.ts`](src/app/sitemap.ts) | Change `example.com` |
+| [`src/app/robots.ts`](src/app/robots.ts) | Change `example.com` |
+| [`src/app/layout.tsx`](src/app/layout.tsx) | Update `metadataBase` |
+| [`src/app/opengraph-image.tsx`](src/app/opengraph-image.tsx) | Update content |
+
+### ▶️ Development
+
+```bash
+npm run dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-## Available Scripts
+---
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint errors |
-| `npm run type-check` | Run TypeScript check |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
-| `npm run clean` | Remove .next and node_modules |
-| `npm run clean:next` | Remove .next only |
+## 📜 Available Scripts
 
-## Project Structure
+```bash
+# Development
+npm run dev          # Start development server
 
-```
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── api/                # API routes
-│   │   │   └── health/         # Health check endpoint
-│   │   ├── sitemap.ts          # SEO sitemap
-│   │   ├── robots.ts           # SEO robots.txt
-│   │   ├── manifest.ts         # Web app manifest
-│   │   ├── opengraph-image.tsx # Open Graph image
-│   │   ├── error.tsx           # Error boundary
-│   │   ├── loading.tsx         # Loading UI
-│   │   ├── not-found.tsx       # 404 page
-│   │   ├── layout.tsx          # Root layout + metadata
-│   │   ├── page.tsx            # Home page
-│   │   └── globals.css         # Global styles
-│   ├── components/
-│   │   ├── ui/                 # shadcn/ui components
-│   │   ├── providers/
-│   │   │   └── theme-provider.tsx  # Dark/light mode provider
-│   │   └── mode-toggle.tsx     # Theme toggle button
-│   ├── hooks/                  # Custom React hooks
-│   │   ├── use-local-storage.ts
-│   │   └── use-debounce.ts
-│   ├── lib/
-│   │   └── utils.ts            # Utility functions (cn)
-│   └── types/
-│       └── index.ts            # TypeScript types
-├── public/                     # Static assets
-├── .env.example                # Environment variables template
-├── .nvmrc                      # Node.js version lock
-├── components.json             # shadcn/ui config
-├── next.config.ts              # Next.js config
-├── prettier.config.mjs         # Prettier config
-└── .vscode/                    # VS Code settings
-    ├── extensions.json         # Recommended extensions
-    └── settings.json           # Editor settings
+# Production
+npm run build        # Build for production
+npm run start        # Start production server
+
+# Code Quality
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint errors
+npm run type-check   # Run TypeScript check
+npm run format       # Format code with Prettier
+npm run format:check # Check code formatting
+
+# Maintenance
+npm run clean        # Remove .next and node_modules
+npm run clean:next   # Remove .next only
 ```
 
-## Custom Hooks
+---
 
-### useLocalStorage
+## 📁 Project Structure
+
+```
+📦 examio
+├── 📂 src/
+│   ├── 📂 app/                    # Next.js App Router
+│   │   ├── 📂 api/                # API routes
+│   │   │   └── 📂 health/         # Health check endpoint
+│   │   ├── 📄 sitemap.ts          # SEO sitemap
+│   │   ├── 📄 robots.ts           # SEO robots.txt
+│   │   ├── 📄 manifest.ts         # Web app manifest
+│   │   ├── 📄 opengraph-image.tsx # Open Graph image
+│   │   ├── 📄 error.tsx           # Error boundary
+│   │   ├── 📄 loading.tsx         # Loading UI
+│   │   ├── 📄 not-found.tsx       # 404 page
+│   │   ├── 📄 layout.tsx          # Root layout + metadata
+│   │   ├── 📄 page.tsx            # Home page
+│   │   └── 📄 globals.css         # Global styles
+│   ├── 📂 components/
+│   │   ├── 📂 ui/                 # shadcn/ui components
+│   │   ├── 📂 providers/
+│   │   │   └── 📄 theme-provider.tsx
+│   │   └── 📄 mode-toggle.tsx     # Theme toggle button
+│   ├── 📂 hooks/                  # Custom React hooks
+│   │   ├── 📄 use-local-storage.ts
+│   │   └── 📄 use-debounce.ts
+│   ├── 📂 lib/
+│   │   └── 📄 utils.ts            # Utility functions (cn)
+│   └── 📂 types/
+│       └── 📄 index.ts            # TypeScript types
+├── 📂 public/                     # Static assets
+├── 📄 .env.example                # Environment variables template
+├── 📄 .nvmrc                      # Node.js version lock
+├── 📄 components.json             # shadcn/ui config
+├── 📄 next.config.ts              # Next.js config
+├── 📄 prettier.config.mjs         # Prettier config
+└── 📂 .vscode/                    # VS Code settings
+    ├── 📄 extensions.json         # Recommended extensions
+    └── 📄 settings.json           # Editor settings
+```
+
+---
+
+## 🪝 Custom Hooks
+
+### 🔒 useLocalStorage
 
 Persist state to localStorage with type safety:
 
@@ -127,7 +189,7 @@ function MyComponent() {
 }
 ```
 
-### useDebounce
+### ⏱️ useDebounce
 
 Debounce values for search/filter:
 
@@ -141,14 +203,19 @@ function Search() {
 }
 ```
 
-## Theming
+---
 
-### Dark/Light Mode
+## 🎨 Theming
+
+### 🌓 Dark/Light Mode
 
 The template includes a theme toggle button and supports:
-- Light mode
-- Dark mode
-- System preference
+
+| Mode | Description |
+|------|-------------|
+| ☀️ Light | Clean, bright interface |
+| 🌙 Dark | Easy on the eyes |
+| 💻 System | Auto-detect preference |
 
 Toggle theme programmatically:
 
@@ -166,7 +233,7 @@ function MyComponent() {
 }
 ```
 
-### Customizing Theme
+### 🎨 Customizing Theme
 
 Edit CSS variables in [`src/app/globals.css`](src/app/globals.css):
 
@@ -179,35 +246,40 @@ Edit CSS variables in [`src/app/globals.css`](src/app/globals.css):
 }
 ```
 
-## SEO
+---
+
+## 🔍 SEO
 
 The template includes comprehensive SEO setup:
 
-- **Sitemap** - Auto-generated at `/sitemap.xml`
-- **Robots** - Configured at `/robots.txt`
-- **Open Graph** - Social sharing images
-- **Manifest** - PWA support
-- **Metadata** - Complete meta tags in layout
+| Feature | Path | Description |
+|---------|------|-------------|
+| 🗺️ **Sitemap** | `/sitemap.xml` | Auto-generated |
+| 🤖 **Robots** | `/robots.txt` | Configured |
+| 📱 **Open Graph** | `/opengraph-image` | Social sharing |
+| 📲 **Manifest** | `/manifest.webmanifest` | PWA support |
+| 🏷️ **Metadata** | `layout.tsx` | Complete meta tags |
 
 Update your domain in:
 - `src/app/sitemap.ts`
 - `src/app/robots.ts`
 - `src/app/layout.tsx` (metadataBase)
 
-## Adding Components
+---
 
-To add more shadcn/ui components:
+## ➕ Adding Components
 
 ```bash
+# Add a shadcn/ui component
 npx shadcn@latest add <component-name>
-```
 
-Example:
-```bash
+# Example
 npx shadcn@latest add calendar
 ```
 
-## Environment Variables
+---
+
+## 🔐 Environment Variables
 
 Copy `.env.example` to `.env.local` and configure:
 
@@ -223,15 +295,17 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 # NEXTAUTH_URL=
 ```
 
-## Deployment
+---
 
-### Vercel (Recommended)
+## 🚀 Deployment
+
+### ▲ Vercel (Recommended)
 
 ```bash
 npm run build
 ```
 
-### Other Platforms
+### 🌐 Other Platforms
 
 Make sure to set the Node.js version to match [`.nvmrc`](.nvmrc):
 
@@ -239,9 +313,11 @@ Make sure to set the Node.js version to match [`.nvmrc`](.nvmrc):
 node -v  # Should show v20.11.0 or higher
 ```
 
-## Customization
+---
 
-### Base Color
+## 🛠️ Customization
+
+### 🎨 Base Color
 
 Current template uses **neutral** base color. To change:
 
@@ -250,20 +326,38 @@ npx shadcn@latest init
 # Select different base color
 ```
 
-### Fonts
+### ✒️ Fonts
 
 The template uses Geist font. To change, edit [`src/app/layout.tsx`](src/app/layout.tsx).
 
-## Learn More
+---
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [shadcn/ui Documentation](https://ui.shadcn.com/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+## 📚 Documentation
 
-## License
+<p align="center">
+  <a href="https://nextjs.org/docs">
+    <img src="https://img.shields.io/badge/Next.js%20Docs-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js">
+  </a>
+  <a href="https://ui.shadcn.com/docs">
+    <img src="https://img.shields.io/badge/shadcn%2Fui%20Docs-000000?style=flat-square&logo=shadcnui&logoColor=white" alt="shadcn/ui">
+  </a>
+  <a href="https://tailwindcss.com/docs">
+    <img src="https://img.shields.io/badge/Tailwind%20CSS%20Docs-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  </a>
+</p>
+
+---
+
+## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file
 
 ---
 
-**Built by NISIO** 🚀
+<p align="center">
+  <b>Built by NISIO</b> 🚀
+</p>
+
+<p align="center">
+  <i>Happy coding! ✨</i>
+</p>
