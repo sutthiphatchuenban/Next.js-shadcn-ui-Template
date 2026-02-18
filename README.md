@@ -281,7 +281,7 @@ npx shadcn@latest add calendar
 
 ## 🔐 Environment Variables
 
-Copy `.env.example` to `.env.local` and configure:
+Copy `.env.example` to `.env` and configure:
 
 ```bash
 # App
