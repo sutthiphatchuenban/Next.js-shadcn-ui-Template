@@ -77,7 +77,7 @@
 
 ```bash
 # 1. Clone or copy this template
-git clone <repository-url>
+git clone https://github.com/sutthiphatchuenban/Next.js-shadcn-ui-Template.git
 
 # 2. Install dependencies
 npm install
