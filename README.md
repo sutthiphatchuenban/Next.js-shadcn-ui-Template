@@ -9,8 +9,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui">
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint">
-  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier">
+  <img src="https://img.shields.io/badge/Drizzle%20ORM-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle ORM">
+  <img src="https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod">
 </p>
 
 <p align="center">
@@ -18,13 +18,16 @@
 </p>
 
 <p align="center">
-  A production-ready Next.js template with TypeScript, Tailwind CSS, shadcn/ui components, and SEO optimization.
+  A production-ready Next.js 16 template with enterprise-grade architecture: layered API pattern, type-safe error handling, consistent API responses, and 23+ shadcn/ui components.
 </p>
+
+> 💡 **Note:** This is just a starting template! Feel free to completely edit, customize, or delete any part of this code to suit your project's needs.
 
 <p align="center">
   <a href="#-features">Features</a> •
   <a href="#-quick-start">Quick Start</a> •
   <a href="#-project-structure">Structure</a> •
+  <a href="#-architecture">Architecture</a> •
   <a href="#-documentation">Docs</a>
 </p>
 
@@ -32,18 +35,22 @@
 
 ## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| ⚡ **Next.js 16** | Latest React framework with App Router |
-| 🔄 **React 19** | Latest React with Compiler |
-| 🛡️ **TypeScript** | Type-safe development experience |
-| 🎨 **Tailwind CSS 4** | Utility-first CSS framework |
-| 🧩 **shadcn/ui** | 23+ pre-installed UI components |
-| 🌓 **Dark/Light Mode** | Theme switching with next-themes |
-| 🔍 **SEO Ready** | Sitemap, robots, Open Graph, Manifest |
-| 🛠️ **Error Handling** | Error boundaries, loading states, 404 page |
-| 📝 **ESLint + Prettier** | Code linting and formatting |
-| ✅ **React Hook Form + Zod** | Form handling and validation |
+| Feature                      | Description                                |
+| ---------------------------- | ------------------------------------------ |
+| ⚡ **Next.js 16**            | Latest React framework with App Router     |
+| 🔄 **React 19**              | Latest React with Compiler                 |
+| 🛡️ **TypeScript**            | Strict type-safe development               |
+| 🎨 **Tailwind CSS 4**        | Utility-first CSS framework                |
+| 🧩 **shadcn/ui**             | 23+ pre-installed UI components            |
+| 🌓 **Dark/Light Mode**       | Theme switching with next-themes           |
+| 🔍 **SEO Ready**             | Sitemap, robots, Open Graph, Manifest      |
+| 🛠️ **Error Handling**        | Custom error classes + error boundaries    |
+| 📝 **ESLint + Prettier**     | Code linting and formatting                |
+| ✅ **Zod Validation**        | Type-safe input validation                 |
+| 🗄️ **Drizzle ORM**           | Type-safe database queries (PostgreSQL)    |
+| 🔒 **Proxy (Middleware)**    | Security headers + auth-ready              |
+| 📦 **Barrel Exports**        | Clean imports via index.ts in all modules  |
+| 🎯 **Consistent API**        | apiSuccess/apiError helpers for all routes |
 
 ---
 
@@ -52,15 +59,15 @@
 <div align="center">
 
 | 📋 **Form** | 🖼️ **Display** | 🎯 **Overlay** | 💬 **Feedback** |
-|:-----------:|:--------------:|:--------------:|:---------------:|
-| Button | Card | Dialog | Toast (Sonner) |
-| Input | Badge | Sheet | Tabs |
-| Label | Avatar | DropdownMenu | ScrollArea |
-| Textarea | Skeleton | NavigationMenu | Collapsible |
-| Checkbox | Table | Tooltip | |
-| Switch | Separator | | |
-| Select | | | |
-| Form | | | |
+| :---------: | :------------: | :------------: | :-------------: |
+|   Button    |      Card      |     Dialog     | Toast (Sonner)  |
+|    Input    |     Badge      |     Sheet      |      Tabs       |
+|    Label    |     Avatar     |  DropdownMenu  |   ScrollArea    |
+|  Textarea   |    Skeleton    | NavigationMenu |   Collapsible   |
+|  Checkbox   |     Table      |    Tooltip     |                 |
+|   Switch    |   Separator    |                |                 |
+|   Select    |                |                |                 |
+|    Form     |                |                |                 |
 
 </div>
 
@@ -90,12 +97,13 @@ cp .env.example .env
 
 Update your domain in SEO files:
 
-| File | What to Change |
-|------|----------------|
-| [`src/app/sitemap.ts`](src/app/sitemap.ts) | Change `example.com` |
-| [`src/app/robots.ts`](src/app/robots.ts) | Change `example.com` |
-| [`src/app/layout.tsx`](src/app/layout.tsx) | Update `metadataBase` |
-| [`src/app/opengraph-image.tsx`](src/app/opengraph-image.tsx) | Update content |
+| File                                                         | What to Change        |
+| ------------------------------------------------------------ | --------------------- |
+| [`src/app/sitemap.ts`](src/app/sitemap.ts)                   | Change `example.com`  |
+| [`src/app/robots.ts`](src/app/robots.ts)                     | Change `example.com`  |
+| [`src/app/layout.tsx`](src/app/layout.tsx)                   | Update `metadataBase` |
+| [`src/config/site.ts`](src/config/site.ts)                   | Update `name`, `url`  |
+| [`src/app/opengraph-image.tsx`](src/app/opengraph-image.tsx) | Update content        |
 
 ### ▶️ Development
 
@@ -124,6 +132,12 @@ npm run type-check   # Run TypeScript check
 npm run format       # Format code with Prettier
 npm run format:check # Check code formatting
 
+# Database (Drizzle ORM)
+npm run db:generate  # Generate schema migrations
+npm run db:push      # Push schema directly to database
+npm run db:migrate   # Run migrations
+npm run db:studio    # Open Drizzle UI Studio
+
 # Maintenance
 npm run clean        # Remove .next and node_modules
 npm run clean:next   # Remove .next only
@@ -134,42 +148,110 @@ npm run clean:next   # Remove .next only
 ## 📁 Project Structure
 
 ```
-📦 examio
+📦 your-project
 ├── 📂 src/
-│   ├── 📂 app/                    # Next.js App Router
-│   │   ├── 📂 api/                # API routes
-│   │   │   └── 📂 health/         # Health check endpoint
-│   │   ├── 📄 sitemap.ts          # SEO sitemap
-│   │   ├── 📄 robots.ts           # SEO robots.txt
-│   │   ├── 📄 manifest.ts         # Web app manifest
-│   │   ├── 📄 opengraph-image.tsx # Open Graph image
-│   │   ├── 📄 error.tsx           # Error boundary
-│   │   ├── 📄 loading.tsx         # Loading UI
-│   │   ├── 📄 not-found.tsx       # 404 page
-│   │   ├── 📄 layout.tsx          # Root layout + metadata
-│   │   ├── 📄 page.tsx            # Home page
-│   │   └── 📄 globals.css         # Global styles
+│   ├── 📂 app/                    # Next.js App Router & API Routes
+│   │   ├── 📂 api/
+│   │   │   ├── 📂 health/        # GET /api/health — health check
+│   │   │   └── 📂 users/         # POST /api/users — user registration
+│   │   ├── 📂 about/             # About page
+│   │   ├── 📄 layout.tsx         # Root layout with metadata & providers
+│   │   ├── 📄 page.tsx           # Home page
+│   │   ├── 📄 error.tsx          # Error boundary
+│   │   ├── 📄 loading.tsx        # Loading skeleton
+│   │   └── 📄 not-found.tsx      # 404 page
 │   ├── 📂 components/
-│   │   ├── 📂 ui/                 # shadcn/ui components
-│   │   ├── 📂 providers/
-│   │   │   └── 📄 theme-provider.tsx
-│   │   └── 📄 mode-toggle.tsx     # Theme toggle button
-│   ├── 📂 hooks/                  # Custom React hooks
-│   │   ├── 📄 use-local-storage.ts
-│   │   └── 📄 use-debounce.ts
-│   ├── 📂 lib/
-│   │   └── 📄 utils.ts            # Utility functions (cn)
-│   └── 📂 types/
-│       └── 📄 index.ts            # TypeScript types
+│   │   ├── 📂 forms/             # Form components (UserRegistrationForm)
+│   │   ├── 📂 layout/            # Shared layout (Header, Footer)
+│   │   ├── 📂 providers/         # Context providers (ThemeProvider)
+│   │   └── 📂 ui/                # shadcn/ui primitives (23 components)
+│   ├── 📂 config/                # Site configuration (name, URL)
+│   ├── 📂 db/                    # Drizzle ORM (schema, safe connection)
+│   ├── 📂 hooks/                 # Custom hooks + barrel export
+│   ├── 📂 lib/                   # Core utilities
+│   │   ├── 📄 utils.ts           # cn() helper
+│   │   ├── 📄 errors.ts          # AppError, ConflictError, NotFoundError…
+│   │   └── 📄 api-response.ts    # apiSuccess(), apiError(), apiValidationError()
+│   ├── 📂 services/              # Business logic layer + barrel export
+│   ├── 📂 types/                 # Shared TypeScript types
+│   ├── 📂 validations/           # Zod schemas + barrel export
+│   └── 📄 proxy.ts               # Next.js 16 proxy (security headers)
 ├── 📂 public/                     # Static assets
+│
 ├── 📄 .env.example                # Environment variables template
 ├── 📄 .nvmrc                      # Node.js version lock
 ├── 📄 components.json             # shadcn/ui config
-├── 📄 next.config.ts              # Next.js config
-├── 📄 prettier.config.mjs         # Prettier config
-└── 📂 .vscode/                    # VS Code settings
-    ├── 📄 extensions.json         # Recommended extensions
-    └── 📄 settings.json           # Editor settings
+├── 📄 drizzle.config.ts           # Drizzle ORM config
+├── 📄 next.config.ts              # Next.js config (React Compiler enabled)
+├── 📄 eslint.config.mjs           # ESLint flat config
+└── 📄 prettier.config.mjs         # Prettier config
+```
+
+---
+
+## 🏗️ Architecture
+
+### Layered API Pattern
+
+All API routes follow a consistent layered pattern:
+
+```
+Request → Route Handler (validate with Zod)
+       → Service Layer (business logic)
+       → Database (Drizzle ORM)
+       → apiSuccess() / apiError() response
+```
+
+### Consistent API Responses
+
+Every API endpoint returns the same response shape using helpers from `lib/api-response.ts`:
+
+```typescript
+// ✅ Success response
+apiSuccess(data, 201, "User created")
+// → { status: "success", data: {...}, message: "User created" }
+
+// ❌ Error response (auto-extracts status from AppError)
+apiError(error)
+// → { status: "error", error: "User with this email already exists" }
+
+// ⚠️ Validation error
+apiValidationError(zodError.flatten())
+// → { status: "error", error: "Validation failed", details: {...} }
+```
+
+### Type-safe Error Handling
+
+Custom error classes in `lib/errors.ts` let services throw meaningful errors:
+
+```typescript
+import { ConflictError, NotFoundError } from "@/lib/errors"
+
+// In service layer
+throw new ConflictError("User with this email already exists") // → HTTP 409
+throw new NotFoundError("User not found")                      // → HTTP 404
+
+// In route handler — just catch and let the helper extract the status code
+catch (error: unknown) {
+  return apiError(error) // automatically returns correct HTTP status
+}
+```
+
+Available error classes: `AppError`, `BadRequestError`, `NotFoundError`, `ConflictError`, `UnauthorizedError`.
+
+### Barrel Exports
+
+Every module has an `index.ts` for clean imports:
+
+```typescript
+// Instead of deep imports:
+import { UserService } from "@/services/user.service"
+import { useDebounce } from "@/hooks/use-debounce"
+
+// Use clean barrel imports:
+import { UserService } from "@/services"
+import { useDebounce, useLocalStorage } from "@/hooks"
+import { createUserSchema } from "@/validations"
 ```
 
 ---
@@ -181,7 +263,7 @@ npm run clean:next   # Remove .next only
 Persist state to localStorage with type safety:
 
 ```tsx
-import { useLocalStorage } from "@/hooks/use-local-storage"
+import { useLocalStorage } from "@/hooks"
 
 function MyComponent() {
   const [value, setValue] = useLocalStorage("key", defaultValue)
@@ -194,7 +276,7 @@ function MyComponent() {
 Debounce values for search/filter:
 
 ```tsx
-import { useDebounce } from "@/hooks/use-debounce"
+import { useDebounce } from "@/hooks"
 
 function Search() {
   const [search, setSearch] = useState("")
@@ -211,11 +293,11 @@ function Search() {
 
 The template includes a theme toggle button and supports:
 
-| Mode | Description |
-|------|-------------|
-| ☀️ Light | Clean, bright interface |
-| 🌙 Dark | Easy on the eyes |
-| 💻 System | Auto-detect preference |
+| Mode      | Description             |
+| --------- | ----------------------- |
+| ☀️ Light  | Clean, bright interface |
+| 🌙 Dark   | Easy on the eyes        |
+| 💻 System | Auto-detect preference  |
 
 Toggle theme programmatically:
 
@@ -224,12 +306,8 @@ import { useTheme } from "next-themes"
 
 function MyComponent() {
   const { theme, setTheme } = useTheme()
-  
-  return (
-    <button onClick={() => setTheme("dark")}>
-      Switch to dark mode
-    </button>
-  )
+
+  return <button onClick={() => setTheme("dark")}>Switch to dark mode</button>
 }
 ```
 
@@ -252,18 +330,40 @@ Edit CSS variables in [`src/app/globals.css`](src/app/globals.css):
 
 The template includes comprehensive SEO setup:
 
-| Feature | Path | Description |
-|---------|------|-------------|
-| 🗺️ **Sitemap** | `/sitemap.xml` | Auto-generated |
-| 🤖 **Robots** | `/robots.txt` | Configured |
-| 📱 **Open Graph** | `/opengraph-image` | Social sharing |
-| 📲 **Manifest** | `/manifest.webmanifest` | PWA support |
-| 🏷️ **Metadata** | `layout.tsx` | Complete meta tags |
+| Feature           | Path                    | Description        |
+| ----------------- | ----------------------- | ------------------ |
+| 🗺️ **Sitemap**    | `/sitemap.xml`          | Auto-generated     |
+| 🤖 **Robots**     | `/robots.txt`           | Configured         |
+| 📱 **Open Graph** | `/opengraph-image`      | Social sharing     |
+| 📲 **Manifest**   | `/manifest.webmanifest` | PWA support        |
+| 🏷️ **Metadata**   | `layout.tsx`            | Complete meta tags |
 
 Update your domain in:
+
 - `src/app/sitemap.ts`
 - `src/app/robots.ts`
 - `src/app/layout.tsx` (metadataBase)
+- `src/config/site.ts`
+
+---
+
+## 🔒 Proxy (Middleware)
+
+The `src/proxy.ts` file (Next.js 16's replacement for `middleware.ts`) runs before every matched request:
+
+- **Security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy
+- **Auth-ready** — add authentication checks as your project grows
+- **Rate limiting** — add rate limiting logic when needed
+
+```typescript
+// src/proxy.ts
+export function proxy(request: NextRequest) {
+  const response = NextResponse.next()
+  response.headers.set("X-Frame-Options", "DENY")
+  // Add your auth/rate-limiting logic here
+  return response
+}
+```
 
 ---
 
@@ -287,13 +387,11 @@ Copy `.env.example` to `.env` and configure:
 # App
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Database (if needed)
-# DATABASE_URL=
-
-# Authentication (if needed)
-# NEXTAUTH_SECRET=
-# NEXTAUTH_URL=
+# Database (PostgreSQL)
+DATABASE_URL="postgresql://postgres:password@localhost:5432/my-db-name"
 ```
+
+> 💡 The template works without `DATABASE_URL` — it will run in mock mode and show a console warning instead of crashing.
 
 ---
 
@@ -343,6 +441,9 @@ The template uses Geist font. To change, edit [`src/app/layout.tsx`](src/app/lay
   </a>
   <a href="https://tailwindcss.com/docs">
     <img src="https://img.shields.io/badge/Tailwind%20CSS%20Docs-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  </a>
+  <a href="https://orm.drizzle.team/docs/overview">
+    <img src="https://img.shields.io/badge/Drizzle%20ORM%20Docs-C5F74F?style=flat-square&logo=drizzle&logoColor=black" alt="Drizzle ORM">
   </a>
 </p>
 

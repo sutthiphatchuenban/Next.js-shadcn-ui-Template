@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server"
+import { apiSuccess } from "@/lib/api-response"
 
 export async function GET() {
-  return NextResponse.json({
-    status: "ok",
-    timestamp: new Date().toISOString(),
+  return apiSuccess({
     service: "nextjs-template",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
   })
 }
 

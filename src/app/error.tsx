@@ -16,19 +16,15 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="max-w-md w-full">
+    <div className="flex min-h-screen items-center justify-center p-4">
+      <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-destructive">Something went wrong!</CardTitle>
-          <CardDescription>
-            An error occurred while loading this page.
-          </CardDescription>
+          <CardDescription>An error occurred while loading this page.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {error.message && (
-            <p className="text-sm text-muted-foreground bg-muted p-3 rounded">
-              {error.message}
-            </p>
+            <p className="text-muted-foreground bg-muted rounded p-3 text-sm">{error.message}</p>
           )}
           <Button onClick={reset} className="w-full">
             Try again

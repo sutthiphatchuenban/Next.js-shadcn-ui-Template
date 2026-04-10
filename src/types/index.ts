@@ -7,10 +7,21 @@ export interface User {
   image?: string
 }
 
+/**
+ * Standard API response format.
+ * All API routes should return responses matching this shape.
+ * @see src/lib/api-response.ts for helper functions.
+ */
 export interface ApiResponse<T> {
   data: T
   status: "success" | "error"
   message?: string
+}
+
+export interface ApiErrorResponse {
+  status: "error"
+  error: string
+  details?: unknown
 }
 
 export interface PaginatedResponse<T> {
